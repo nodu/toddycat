@@ -1,0 +1,8 @@
+.container
+  .row
+    .col-lg-4
+      h1 = @registrant.email
+      p = @registrant.id
+      p = @registrant.expires_at
+      p = link_to "Kill me", registrant_path(@registrant.id), :method => :delete, :confirm => "Are you sure?"
+      p = link_to "Registrants", registrants_path

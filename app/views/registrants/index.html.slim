@@ -1,0 +1,17 @@
+.container
+  .row
+    .col-lg-8
+      .pull-right = link_to "New", new_registrant_url, class: "btn btn-info"
+      h1 Registrants
+  .row
+    .col-lg-8
+      table.table.table-bordered
+        thead
+          - @registrants.each do |registrant|
+            tr
+              td = link_to registrant.id, registrant_url(registrant.id)
+              td = registrant.email
+              td = registrant.expires_at
+              td = link_to "Edit", edit_registrant_url(registrant.id), class: "btn btn-info"
+              
+  

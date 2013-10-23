@@ -1,8 +1,10 @@
 Toddycat::Application.routes.draw do
   
+  resources :registrants
+  
   # Sign in/out
-  get    'login' => 'session#new'
-  post   'login' => 'session#create'
+  get    'login'  => 'session#new'
+  post   'login'  => 'session#create'
   delete 'logout' => 'session#destroy'
   get    'logout' => 'session#destroy'
   
