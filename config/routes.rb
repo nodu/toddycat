@@ -1,4 +1,4 @@
-Toddycat::Application.routes.draw do
+ToddyCat::Application.routes.draw do
   
   # Sign in/out
   get    'login' => 'session#new'
