@@ -1,8 +1,14 @@
-= form_for @registrant do |f|
-  fieldset
-    legend = @registrant.persisted? ? "Edit registrant" : "Create registrant"
-    .form-group
-      = f.label :email
-      = f.text_field :email, class: "form-control", placeholder: "Enter registrant's email"
-    .form-group
-      = f.submit "Save", class: "btn btn-danger"
+.container
+  .row
+    .col-lg-4.col-lg-offset-4
+      p.pull-right = link_to "Show all", registrants_path, class: "btn btn-info", style: "margin-top: 20px"
+  .row
+    .col-lg-4.col-lg-offset-4
+      = form_for @registrant do |f|
+        fieldset
+          legend = @registrant.persisted? ? "Edit registrant" : "Create registrant"
+          .form-group
+            = f.label :email
+            = f.text_field :email, class: "form-control", placeholder: "Enter registrant's email"
+          .form-group
+            = f.submit "Save", class: "btn btn-danger"

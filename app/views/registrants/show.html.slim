@@ -1,8 +1,11 @@
 .container
   .row
-    .col-lg-4
+    .col-lg-4.col-lg-offset-4
+      p.pull-right = link_to "Show all", registrants_path, class: "btn btn-info", style: "margin-top: 20px"
       h1 = @registrant.email
-      p = @registrant.id
-      p = @registrant.expires_at
-      p = link_to "Kill me", registrant_path(@registrant.id), :method => :delete, :confirm => "Are you sure?"
-      p = link_to "Registrants", registrants_path
+      p
+        => @registrant.expires_at.strftime("%m/%d/%Y at %I:%M %p")
+      p
+        | (id: #{@registrant.id})
+      p = link_to "Delete", registrant_path(@registrant.id), class: "btn btn-danger", :method => :delete, :confirm => "Are you sure?"
+      

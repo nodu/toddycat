@@ -12,12 +12,13 @@ class RegistrantsController < ApplicationController
   end
   
   def create
-    registrant = Registrant.create( registrant_params )
+    registrant = Registrant.new( registrant_params )
+    registrant.id = SecureRandom.urlsafe_base64
     
-    if registrant
-      head :created
+    if registrant.save
+      redirect_to registrant_url(registrant)
     else
-      render json: registrant.errors, status: :unprocessable_entity
+      render :new, error: "This thing won't save!"
     end
   end
   
@@ -29,9 +30,9 @@ class RegistrantsController < ApplicationController
     registrant = Registrant.find_by(id: params[:id])
     
     if registrant.update_attributes( registrant_params )
-      head :no_content
+      redirect_to registrant_url(registrant)
     else
-      render json: registrant.errors, status: :unprocessable_entity
+      render :edit, error: "Can't do no update!"
     end
   end
   
@@ -45,7 +46,6 @@ class RegistrantsController < ApplicationController
   
   def registrant_params
     params.require(:registrant).permit(
-      :id,
       :email,
       :expires_at
     )

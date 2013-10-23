@@ -1,17 +1,23 @@
 .container
   .row
-    .col-lg-8
-      .pull-right = link_to "New", new_registrant_url, class: "btn btn-info"
+    .col-lg-6.col-lg-offset-3
+      .pull-right = link_to "New", new_registrant_url, class: "btn btn-info", style: "margin-top: 20px"
       h1 Registrants
   .row
-    .col-lg-8
+    .col-lg-6.col-lg-offset-3
       table.table.table-bordered
         thead
+          tr
+            th Email
+            th Expires at
+            th
+        tbody
           - @registrants.each do |registrant|
             tr
-              td = link_to registrant.id, registrant_url(registrant.id)
-              td = registrant.email
-              td = registrant.expires_at
-              td = link_to "Edit", edit_registrant_url(registrant.id), class: "btn btn-info"
+              td = link_to registrant.email, registrant_url(registrant.id)
+              td = registrant.expires_at.strftime("%m/%d/%Y at %I:%M %p")
+              td
+                => link_to "Edit", edit_registrant_url(registrant.id), class: "btn btn-info"
+                =< link_to "Delete", registrant_url(registrant.id), class: "btn btn-info", method: :delete, confirm: "Are you sure?"
               
   
