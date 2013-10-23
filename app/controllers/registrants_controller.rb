@@ -12,11 +12,11 @@ class RegistrantsController < ApplicationController
   end
   
   def create
-    registrant = Registrant.new( registrant_params )
-    registrant.id = SecureRandom.urlsafe_base64
+    @registrant = Registrant.new( registrant_params )
+    @registrant.id = SecureRandom.urlsafe_base64
     
-    if registrant.save
-      redirect_to registrant_url(registrant)
+    if @registrant.save
+      redirect_to registrant_url(@registrant)
     else
       render :new, error: "This thing won't save!"
     end
@@ -27,10 +27,10 @@ class RegistrantsController < ApplicationController
   end
   
   def update
-    registrant = Registrant.find_by(id: params[:id])
+    @registrant = Registrant.find_by(id: params[:id])
     
-    if registrant.update_attributes( registrant_params )
-      redirect_to registrant_url(registrant)
+    if @registrant.update_attributes( registrant_params )
+      redirect_to registrant_url(@registrant)
     else
       render :edit, error: "Can't do no update!"
     end
@@ -45,9 +45,6 @@ class RegistrantsController < ApplicationController
   private
   
   def registrant_params
-    params.require(:registrant).permit(
-      :email,
-      :expires_at
-    )
+    params.require(:registrant).permit( :email )
   end
 end
