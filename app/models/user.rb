@@ -17,6 +17,10 @@ class User
   
   before_save :encrypt_password
   
+  validates :email, presence: true
+  validates :email, uniqueness: { case_sensitive: false }
+  validates :password, confirmation: true
+  
   def authenticate(password)
     self.fish == BCrypt::Engine.hash_secret(password, self.salt)
   end
