@@ -12,8 +12,8 @@ class SessionController < ApplicationController
         @user.code = SecureRandom.urlsafe_base64
         @user.expires_at = Time.now + 1.day
         @user.save
-        
-        # SEND PASSWORD RESET EMAIL
+
+        UserMailer.reset_email(@user, request).deliver
         
         flash.now[:notice] = "An email with instructions for " +
           "reseting your password has been sent to you."
@@ -25,7 +25,7 @@ class SessionController < ApplicationController
         @registrant.expires_at = Time.now + 1.day
         @registrant.save
         
-        # SEND REGISTRATION EMAIL
+        UserMailer.registration_email(@registrant, request).deliver
         
         flash.now[:notice] = "An email with instructions for " +
           "completing your registration has been sent to you."
