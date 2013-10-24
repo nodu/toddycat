@@ -1,1 +1,15 @@
-h1 Please sign in
+.row
+  .col-lg-4.col-lg-offset-4
+    h1 Please sign in
+    .row
+      .col-lg-9
+        = form_for :user, url: login_url, html: { role: "form" } do |f|
+          .form-group
+            = f.label :email
+            = f.text_field :email, class: "form-control", placeholder: "Email address"
+          .form-group
+            = f.label :password
+            = f.password_field :password, class: "form-control", placeholder: "Password"
+          .form-group
+            => f.submit "Sign in", class: "btn btn-success"
+            button.btn.btn-warning Show Password
