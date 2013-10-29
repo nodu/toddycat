@@ -17,7 +17,7 @@
               = f.text_field :email, class: "form-control", placeholder: "Email address"
             .form-group
               = f.label :password, id: 'password-label'
-              = f.password_field :password, class: "form-control", placeholder: "Password"
+              = f.password_field :password, class: "form-control password-field", placeholder: "Password"
             .form-group
               => f.submit "Sign in", class: "btn btn-success", id: 'submit-button'
               button#show-password-button.btn.btn-warning data-state="show" Show Password
@@ -26,34 +26,33 @@ javascript:
   $(function() {
   
     $('.login-options li a').on('click', function(e) {
-      var id = e.currentTarget.id;
+      var elem = $(this)[0];
+      var id = elem.id;
       
       $('.login-options li').removeClass('active');
-      $($(this)[0].parentNode).addClass('active');
+      $(elem.parentNode).addClass('active');
       
       switch (id) {
         case 'register-pill':
           $('legend').html('Please enter your email');
+          $('#password-label').hide();
           $('#user_password').hide();
           $('#show-password-button').hide();
-          $('#password-label').hide();
           $('#submit-button').val('Register');
           break;
         case 'reset-pill':
           $('legend').html('Please enter your email');
+          $('#password-label').hide();
           $('#user_password').hide();
           $('#show-password-button').hide();
-          $('#password-label').hide();
           $('#submit-button').val('Reset');
-          console.log('show the password reset form');
           break;
         default:
           $('legend').html('Please sign in');
+          $('#password-label').show();
           $('#user_password').show();
           $('#show-password-button').show();
-          $('#password-label').show();
           $('#submit-button').val('Sign in');
-          console.log('show the login form');
       }
       
       e.preventDefault();
