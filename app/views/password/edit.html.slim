@@ -12,4 +12,6 @@
             = f.password_field :password_confirmation, class: "form-control", placeholder: "Type it again"
           .form-group
             => f.submit "Save", class: "btn btn-success"
-            button.btn.btn-warning Show Passwords
+            button#show-password-button.btn.btn-warning data-state="show" Show Passwords
+
+== render partial: 'layouts/password'

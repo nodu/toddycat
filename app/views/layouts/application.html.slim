@@ -9,6 +9,7 @@ html lang="en"
     = csrf_meta_tags
     
     = stylesheet_link_tag "application", media: "all"
+    = javascript_include_tag "application"
   body
     #wrap
       - if current_user
@@ -27,5 +28,3 @@ html lang="en"
           ' •
           => link_to "Terms of Use", terms_url
           ' • © 2013 ToddyCat
-    
-    = javascript_include_tag "application"
