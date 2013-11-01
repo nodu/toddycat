@@ -39,7 +39,8 @@ class SessionController < ApplicationController
         session[:user_id] = @user.id
         redirect_to root_url
       else
-        render :new, error: "Unable to sign you in. Please try again."
+        flash.now[:error] = "Unable to sign you in. Please try again."
+        render :new
       end
     end
   end
