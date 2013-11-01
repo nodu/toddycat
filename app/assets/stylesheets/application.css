@@ -37,8 +37,35 @@ h2, legend {
   padding: 0 0 60px;
 }
 
-#loginform {
+#loginform, #registration-form {
   margin-top: 40px;
+}
+
+#registrant-email {
+  font-size: 1.4em;
+  margin-top: 25px;
+  color: green;
+}
+
+#pw-quality {
+  font-size: 1.2em;
+  margin-top: 20px;
+}
+
+.crack-div {
+  font-size: 1.2em;
+  margin-top: -10px;
+}
+
+#match-div {
+  font-size: 1.2em;
+  margin-top: 20px;
+  color: red;
+}
+
+#match-div.pmatch {
+  font-weight: bold;
+  color: green;
 }
 
 /* Set the fixed height of the footer here */
