@@ -1,8 +1,11 @@
 ToddyCat::Application.routes.draw do
   
-  resources :flats
+  resources :flats do
+    resources :floors
+  end
 
-  resources :floors
+
+  
 
   # Sign in/out
   get    'login' => 'session#new', as: :login
