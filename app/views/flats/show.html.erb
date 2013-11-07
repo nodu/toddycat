@@ -2,7 +2,7 @@
 
 <p>
   <strong>Floor:</strong>
-  <%= @flat.floor_id %>
+  <%= @flat.floor.name %>
 </p>
 
 <p>
@@ -10,5 +10,5 @@
   <%= @flat.name %>
 </p>
 
-<%= link_to 'Edit', edit_flat_path(@flat) %> |
-<%= link_to 'Back', flats_path %>
+<%= link_to 'Edit', edit_floor_flat_path(@floor, @flat) %> |
+<%= link_to 'Back', floor_flats_path(@floor) %>

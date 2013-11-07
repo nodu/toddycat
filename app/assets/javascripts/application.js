@@ -4,3 +4,4 @@
 //= require jquery.noty
 //= require ./themes/default
 //= require ./layouts/top
+//= require cocoon

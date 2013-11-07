@@ -8,6 +8,7 @@ gem 'slim'
 gem 'puma'
 gem 'bcrypt-ruby', require: 'bcrypt'
 
+gem "cocoon"
 gem 'bson_ext'
 gem 'mongoid', github: 'mongoid/mongoid', ref: 'f91feef'
 

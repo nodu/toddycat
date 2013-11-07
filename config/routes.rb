@@ -1,7 +1,7 @@
 ToddyCat::Application.routes.draw do
   
-  resources :flats do
-    resources :floors
+  resources :floors do
+    resources :flats
   end
 
 

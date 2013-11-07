@@ -16,9 +16,9 @@
       <tr>
         <td><%= flat.floor_id %></td>
         <td><%= flat.name %></td>
-        <td><%= link_to 'Show', flat %></td>
-        <td><%= link_to 'Edit', edit_flat_path(flat) %></td>
-        <td><%= link_to 'Destroy', flat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', floor_flat_path(@floor, flat) %></td>
+        <td><%= link_to 'Edit', edit_floor_flat_path(@floor, flat) %></td>
+        <td><%= link_to 'Destroy', floor_flat_path(@floor, flat), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Flat', new_flat_path %>
+<%= link_to 'New Flat', new_floor_flat_path(@floor) %>

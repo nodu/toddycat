@@ -13,6 +13,9 @@ class FloorsController < ApplicationController
   # GET /floors/new
   def new
     @floor = Floor.new
+
+    3.times {@floor.flats.build}
+    #creates an empty dummy flat
   end
 
   # GET /floors/1/edit
@@ -53,6 +56,8 @@ class FloorsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def floor_params
-      params.require(:floor).permit(:name)
+      params.require(:floor).permit(:name, flats_attributes: [:id, :name, :_destroy])
+      #all of the nested attributes needs to go here in the permits
+      # need id or else db will think it is creating a new document
     end
 end
