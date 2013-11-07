@@ -4,8 +4,6 @@
       li.active
         a#login-pill href="#" Sign in
       li
-        a#register-pill href="#" Register
-      li
         a#reset-pill href="#" Reset Password
     = form_for :user, url: login_url, html: { role: "form", id: "loginform" } do |f|
       .row
@@ -30,13 +28,6 @@ javascript:
       $(this).parent().addClass('active');
       
       switch ($(this)[0].id) {
-        case 'register-pill':
-          $('legend').html('Please enter your email');
-          $('#password-label').hide();
-          $('#user_password').hide();
-          $('#show-password-button').hide();
-          $('#submit-button').val('Register');
-          break;
         case 'reset-pill':
           $('legend').html('Please enter your email');
           $('#password-label').hide();

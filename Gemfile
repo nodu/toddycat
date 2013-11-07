@@ -15,4 +15,10 @@ group :development, :test do
   gem 'launchy'
   gem "better_errors"
   gem "binding_of_caller"
+  
+  gem "rspec-rails"
+end
+
+group :test do
+  gem 'database_cleaner'
 end

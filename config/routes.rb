@@ -6,8 +6,8 @@ ToddyCat::Application.routes.draw do
   delete 'logout' => 'session#destroy', as: :logout
   
   # Registration
-  get  'register/:code' => 'registration#new', as: :register
-  post 'register/:code' => 'registration#create'
+  get  'register' => 'registration#new', as: :register
+  post 'register' => 'registration#create'
   
   # Password reset
   get   'reset/:code' => 'password#edit', as: :reset

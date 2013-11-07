@@ -5,6 +5,9 @@
       .row
         .col-lg-6
           .form-group
+            = f.label :email
+            = f.email_field :email, class: "form-control", placeholder: "Email"        
+          .form-group
             = f.label :name
             = f.text_field :name, class: "form-control", placeholder: "Name"
           .form-group
@@ -18,7 +21,7 @@
             => f.submit "Register", class: "btn btn-success"
             button#show-password-button.btn.btn-warning data-state="show" Show Passwords
         .col-lg-6
-          p#registrant-email = @registrant.email
+          p#registrant-email = @user.email
           p#pw-quality Password too weak!
           #pw-meter.strength-meter.progress.progress-striped
             #strength-meter.meter.progress-bar.w-0 role="progressbar" aria-valuemin="0" aria-valuemax="4" aria-valuenow="0"
