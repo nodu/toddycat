@@ -7,6 +7,12 @@
     = link_to_unless_current "ToddyCat", root_url, class: "navbar-brand logo" do
       span.navbar-brand.logo ToddyCat
     .collapse.navbar-collapse
+      ul.nav.navbar-nav
+        li
+          = link_to "Floors", floors_url
+        li
+          = link_to "Flats", flats_url
+          
       ul.nav.navbar-nav.pull-right
         li
           = link_to "Sign out", logout_url, method: :delete, class: "logout-link"
